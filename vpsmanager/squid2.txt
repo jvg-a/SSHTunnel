@@ -1,5 +1,5 @@
 
-acl payload dstdomain -i "/etc/squid3/payload.txt"
+acl payload dstdomain -i "/etc/squid/payload.txt"
 
 http_access allow url1
 http_access allow url2
