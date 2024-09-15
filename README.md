@@ -40,20 +40,6 @@ chmod +x tcptweaker.sh
 ```
 ------------------------------------------
 
-### OpenVPNSetup
-
-O OpenVPNSetup é uma versão modificada do script [openvpn-install](https://github.com/Nyr/openvpn-install/) para funcionar com o protocolo TCP com interface em português.<br>
-Ele serve para facilitar a configuração de servidor OpenVPN e a criação de certificados de usuários (arquivos .ovpn) em servidores VPS ou Cloud Linux que rodem Debian, Ubuntu ou CentOS sem o utilizador precisar de conhecimento técnico.<br>
-É recomendado a leitura deste tutorial caso deseje usar junto com Proxy no Android: [Como usar o Injector Python junto com OpenVPN no Android](https://github.com/jvg-a/SSHTunnel/blob/master/Tutoriais/Injector_Python_OpenVPN_Android.pdf)<br>
-Comandos para instalar:
-
-```bash
-wget https://raw.githubusercontent.com/jvg-a/SSHTunnel/master/openvpn/openvpnsetup.sh -O /bin/openvpnsetup
-chmod +x /bin/openvpnsetup
-openvpnsetup
-```
-------------------------------------------
-
 ### User Backup 1.2
 
 O User Backup 1.2 é um script experimental que serve para copiar todos os usuários, senhas e permissões de um servidor para outro, evitando o trabalho de ter que recriar todos os usuários novamente. Ferramenta útil para quem administra servidores de túnel SSH com muitos usuários.<br>
