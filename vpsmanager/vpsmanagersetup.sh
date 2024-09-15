@@ -69,20 +69,20 @@ apt-get update -y
 apt-get upgrade -y
 rm /bin/criarusuario /bin/expcleaner /bin/sshlimiter /bin/addhost /bin/listar /bin/sshmonitor /bin/ajuda > /dev/null
 rm /root/ExpCleaner.sh /root/CriarUsuario.sh /root/sshlimiter.sh > /dev/null
-apt-get install squid3 bc screen nano unzip dos2unix wget -y
+apt-get install squid bc screen nano unzip dos2unix wget -y
 killall apache2
 apt-get purge apache2 -y
 if [ -f "/usr/sbin/ufw" ] ; then
 	ufw allow 443/tcp ; ufw allow 80/tcp ; ufw allow 3128/tcp ; ufw allow 8799/tcp ; ufw allow 8080/tcp
 fi
-if [ -d "/etc/squid3/" ]
+if [ -d "/etc/squid/" ]
 then
 	wget https://raw.githubusercontent.com/jvg-a/SSHTunnel/master/vpsmanager/squid1.txt -O /tmp/sqd1
 	echo "acl url3 dstdomain -i $ipdovps" > /tmp/sqd2
 	wget https://raw.githubusercontent.com/jvg-a/SSHTunnel/master/vpsmanager/squid2.txt -O /tmp/sqd3
-	cat /tmp/sqd1 /tmp/sqd2 /tmp/sqd3 > /etc/squid3/squid.conf
-	wget https://raw.githubusercontent.com/jvg-a/SSHTunnel/master/vpsmanager/payload.txt -O /etc/squid3/payload.txt
-	echo " " >> /etc/squid3/payload.txt
+	cat /tmp/sqd1 /tmp/sqd2 /tmp/sqd3 > /etc/squid/squid.conf
+	wget https://raw.githubusercontent.com/jvg-a/SSHTunnel/master/vpsmanager/payload.txt -O /etc/squid/payload.txt
+	echo " " >> /etc/squid/payload.txt
 	grep -v "^Port 443" /etc/ssh/sshd_config > /tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config
 	echo "Port 443" >> /etc/ssh/sshd_config
 	grep -v "^PasswordAuthentication yes" /etc/ssh/sshd_config > /tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
@@ -109,11 +109,11 @@ then
 	chmod +x /bin/ajuda
 	wget https://raw.githubusercontent.com/jvg-a/SSHTunnel/master/vpsmanager/scripts/sshmonitor2.sh -O /bin/sshmonitor
 	chmod +x /bin/sshmonitor
-	if [ ! -f "/etc/init.d/squid3" ]
+	if [ ! -f "/etc/init.d/squid" ]
 	then
-		service squid3 reload > /dev/null
+		service squid reload > /dev/null
 	else
-		/etc/init.d/squid3 reload > /dev/null
+		/etc/init.d/squid reload > /dev/null
 	fi
 	if [ ! -f "/etc/init.d/ssh" ]
 	then
